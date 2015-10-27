@@ -1,9 +1,10 @@
 # Parameters
-imageName="go_basic"
+imageName="webserverhello"
 externalPort=8000
 containerPort=8080
 containerName=go_web_server
 buildRunOption=${1}
+host=default
 
 if [ $buildRunOption == "" ]
 then
@@ -30,6 +31,8 @@ ImageRun () {
 	# Launch the page, assuming it's a web app 
 	open http://$(docker-machine ip default):$externalPort
 }
+echo
+echo "Host:" $host
 
 case "$buildRunOption" in
 	"Build")
